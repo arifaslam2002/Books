@@ -22,7 +22,7 @@ export const createBook = async (req, res) => {
 };
 export const updateBook = async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id, req.body, {
+    const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -30,8 +30,8 @@ export const updateBook = async (req, res) => {
       res.status(500).json({
         message: "NO book found",
       });
-      res.json(book);
     }
+    res.status(200).json(book);
   } catch (error) {
     res.status(500).json({
       message: error.message,

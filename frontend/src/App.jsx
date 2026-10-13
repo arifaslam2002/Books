@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./App.css"
 const App = () => {
   const API = "http://localhost:5000/api/books";
   const [books, setBooks] = useState([]);
@@ -79,7 +79,8 @@ const App = () => {
   return (
     <div>
       <h1>Student Book Exchange</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
+      <h2>Form for Adding New Book</h2>
         <input
           name="title"
           type="text"
@@ -121,7 +122,7 @@ const App = () => {
         <br />
         <input
           type="text"
-          name="ownerName" // ✅ FIX: Added missing name attribute
+          name="ownerName" // 
           placeholder="Owner Name"
           value={form.ownerName}
           onChange={handleChange}
